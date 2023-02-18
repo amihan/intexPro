@@ -31,17 +31,19 @@ const Profile = () => {
                         <p className={s.children__title}>Мои дети</p>
                         <div className={s.children__block}>
                             {children.map((kid, id) => (
-                                <div className={s.children__item} key={id}>
+                                <button className={s.children__item} key={id}>
                                     {kid}
-                                </div>
+                                </button>
                             ))}
-                            <div className={s.children__add}>
+                            <button className={s.children__add}>
                                 + <br /> добавить ребенка
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>
+
                 <div className={`${s.profile__option} ${s.option}`}>
+
                     <div className={s.btn}>
                         <button className={s.btn__item}>
                             Заказать справку на <br /> налоговый вычет
@@ -49,10 +51,12 @@ const Profile = () => {
                         <button className={s.btn__item}>Оплатить занятия</button>
                         <button className={s.btn__item}>Сохранить изменения</button>
                     </div>
+
                     <div className={s.discount}>
                         <p className={s.discount__text}>Моя скидка</p>
                         <p className={s.discount__value}>10%</p>
                     </div>
+
                 </div>
             </div>
         </div>

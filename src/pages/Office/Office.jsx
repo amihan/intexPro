@@ -9,10 +9,10 @@ import Documents from "../../components/Documents/Documents";
 import Payments from "../../components/Payments/Payments";
 import Lessons from "../../components/lessons/Lessons";
 
-const Office = ({ isOpen }) => {
+const Office = ({ isOpen, openMenu }) => {
     return (
         <div className={s.office}>
-            <Navbar isOpen={isOpen} />
+            <Navbar isOpen={isOpen} openMenu={openMenu} />
             <Routes>
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/reference' element={<Reference />} />

@@ -1,4 +1,5 @@
 import s from './Lessons.module.scss'
+import Lesson from './Lesson'
 
 const lessons = [
     { title: 'Занятие №1', data: '04.09.2021' },
@@ -49,12 +50,7 @@ const Lessons = () => {
         <div className={s.lessons}>
             <p className={s.lessons__name}>Занятия</p>
             <div className={s.lessons__container}>
-                {lessons.map((lesson, id) => (
-                    <div key={id} className={s.lessons__item}>
-                        <p className={s.lessons__title}>{lesson.title}</p>
-                        <p className={s.lessons__data}>{lesson.data}</p>
-                    </div>
-                ))}
+                {lessons.map((lesson, id) => <Lesson lesson={lesson} id={id} />)}
             </div>
         </div>
     )

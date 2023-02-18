@@ -1,15 +1,18 @@
 .authorization {
   display: grid;
   grid-template-columns: 367fr 1186fr 367fr;
+
   @media (max-width: 768px) {
     grid-template-columns: 200fr 1186fr 200fr;
   }
+
   @media (max-width: 360px) {
     grid-template-columns: 1fr;
   }
 
   &__block {
     background-color: #262D38;
+
     @media (max-width: 360px) {
       display: none;
     }
@@ -18,12 +21,15 @@
   &__container {
     background-color: #FFFFFF;
     padding: 51px 157px 134px 131px;
+
     @media (max-width: 1194px) {
       padding: 32px 77px 69px;
     }
+
     @media (max-width: 768px) {
       padding: 30px 50px 60px;
     }
+
     @media (max-width: 360px) {
       padding: 28px 26px 61px;
     }
@@ -35,11 +41,13 @@
     text-align: center;
     color: #000000;
     margin-bottom: 73px;
+
     @media (max-width: 1194px) {
       font-size: 40px;
       line-height: 53px;
       margin-bottom: 57px;
     }
+
     @media (max-width: 360px) {
       font-size: 20px;
       line-height: 26px;
@@ -57,6 +65,7 @@
     line-height: 40px;
     text-align: center;
     color: #FFFFFF;
+
     @media (max-width: 1194px) {
       font-size: 24px;
       line-height: 32px;
@@ -72,11 +81,13 @@
     line-height: 40px;
     color: #000000;
     margin-bottom: 15px;
+
     @media (max-width: 1194px) {
       font-size: 28px;
       line-height: 37px;
       margin-bottom: 19px;
     }
+
     @media (max-width: 360px) {
       font-size: 20px;
       line-height: 26px;
@@ -92,11 +103,13 @@
     box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     margin-bottom: 15px;
+
     @media (max-width: 1194px) {
       font-size: 28px;
       line-height: 37px;
       margin-bottom: 57px;
     }
+
     @media (max-width: 360px) {
       font-size: 20px;
       line-height: 26px;
@@ -111,11 +124,13 @@
     line-height: 40px;
     color: #000000;
     margin-bottom: 15px;
+
     @media (max-width: 1194px) {
       font-size: 28px;
       line-height: 37px;
       margin-bottom: 19px;
     }
+
     @media (max-width: 360px) {
       font-size: 20px;
       line-height: 26px;
@@ -131,11 +146,13 @@
     box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     margin-bottom: 51px;
+
     @media (max-width: 1194px) {
       font-size: 28px;
       line-height: 37px;
       margin-bottom: 57px;
     }
+
     @media (max-width: 360px) {
       font-size: 20px;
       line-height: 26px;
@@ -143,5 +160,3 @@
     }
   }
 }
-
-
