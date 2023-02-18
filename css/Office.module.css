@@ -1,0 +1,27 @@
+.office {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 370fr 1550fr;
+      grid-template-columns: 370fr 1550fr;
+}
+
+@media (max-width: 1194px) {
+  .office {
+    -ms-grid-columns: 84fr 1110fr;
+        grid-template-columns: 84fr 1110fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .office {
+    -ms-grid-columns: 120fr 1110fr;
+        grid-template-columns: 120fr 1110fr;
+  }
+}
+
+@media (max-width: 450px) {
+  .office {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}

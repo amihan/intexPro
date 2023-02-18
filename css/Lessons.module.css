@@ -1,0 +1,31 @@
+.lessons {
+  padding: 27px 101px 0 92px;
+}
+
+.lessons__container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  gap: 30px 80px;
+}
+
+.lessons__item {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  color: #000000;
+  padding: 37px 12px 26px;
+  background: #31E238;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+}
+
+.lessons__title {
+  text-align: center;
+}
+
+.lessons__data {
+  text-align: center;
+}

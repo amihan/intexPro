@@ -1,0 +1,39 @@
+.news {
+    padding: 56px;
+
+    // .news__title
+    &__title {
+        display: none;
+    }
+}
+
+
+@media (max-width: 1194px) {
+    .news {
+        padding: 26px 50px;
+
+        // .news__title
+        &__title {
+            display: block;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 32px;
+            text-align: center;
+            color: #000000;
+            margin-bottom: 71px;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .news {
+        padding: 28px 40px;
+
+        // .news__title
+        &__title {
+            font-size: 20px;
+            line-height: 26px;
+            margin-bottom: 41px;
+        }
+    }
+}

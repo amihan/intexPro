@@ -1,0 +1,32 @@
+.accordion {
+  padding: 50px 64px 111px 100px;
+}
+
+.accordion__title {
+  display: none;
+}
+
+@media (max-width: 1194px) {
+  .accordion {
+    padding: 28px 38px 60px 50px;
+  }
+  .accordion__title {
+    display: block;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 38px;
+  }
+}
+
+@media (max-width: 360px) {
+  .accordion {
+    padding: 28px 20px;
+  }
+  .accordion__title {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
