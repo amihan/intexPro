@@ -1,12 +1,16 @@
 import s from './Profile.module.scss'
 import avatar from '../../../assets/img/avatar.png'
+import Routes from '../../../routes/Routes'
+
 
 const children = ['Василий', 'Татьяна']
 
 const Profile = () => {
     return (
+
         <div className={s.profile}>
             <h2 className={s.profile__title}>Профиль</h2>
+
             <div className={s.profile__container}>
                 <div className={`${s.profile__data} ${s.data}`}>
                     <div className={s.data__block}>

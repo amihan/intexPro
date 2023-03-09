@@ -9,7 +9,7 @@ const Payments = () => {
         <div className={s.payments}>
             <div className={s.payments__title}>Оплаты</div>
             <div className={s.payments__container}>
-                {month.map((m) => <Month month={m} />)}
+                {month.map((m, id) => <Month key={id} month={m} />)}
             </div>
         </div>
     );

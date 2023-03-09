@@ -50,7 +50,7 @@ const Lessons = () => {
         <div className={s.lessons}>
             <p className={s.lessons__name}>Занятия</p>
             <div className={s.lessons__container}>
-                {lessons.map((lesson, id) => <Lesson lesson={lesson} id={id} />)}
+                {lessons.map((lesson, id) => <Lesson key={id} lesson={lesson} id={id} />)}
             </div>
         </div>
     )
