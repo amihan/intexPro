@@ -17,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <Header isOpen={isOpen} openMenu={openMenu} />
+      {/* <Authorization /> */}
       {isAuth ? <Office isOpen={isOpen} openMenu={openMenu} /> : <Authorization />}
     </div>
   );

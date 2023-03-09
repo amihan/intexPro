@@ -35,9 +35,9 @@ const Profile = () => {
                                     {kid}
                                 </button>
                             ))}
-                            <button className={s.children__add}>
+                            {/* <button className={s.children__add}>
                                 + <br /> добавить ребенка
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </div>
@@ -45,17 +45,17 @@ const Profile = () => {
                 <div className={`${s.profile__option} ${s.option}`}>
 
                     <div className={s.btn}>
-                        <button className={s.btn__item}>
+                        {/* <button className={s.btn__item}>
                             Заказать справку на <br /> налоговый вычет
-                        </button>
-                        <button className={s.btn__item}>Оплатить занятия</button>
+                        </button> */}
+                        <a className={s.btn__item} href="https://intexpro.net/pg/страница-оплаты/" target='_blank' > Оплатить занятия</a>
                         <button className={s.btn__item}>Сохранить изменения</button>
                     </div>
 
-                    <div className={s.discount}>
+                    {/* <div className={s.discount}>
                         <p className={s.discount__text}>Моя скидка</p>
                         <p className={s.discount__value}>10%</p>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>

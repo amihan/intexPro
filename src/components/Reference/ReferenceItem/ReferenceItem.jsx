@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import './ReferenceItem.scss'
 
 const ReferenceItem = ({ title, text }) => {
+
     const [toggle, setToggle] = useState(false)
 
     const toggleState = () => {
@@ -12,6 +13,8 @@ const ReferenceItem = ({ title, text }) => {
         <div className='referenceItem'>
             <p className={toggle ? 'referenceItem__title active' : 'referenceItem__title'} onClick={toggleState}>
                 {title}
+                <button className={toggle ? 'referenceItem__btn active' : 'referenceItem__btn'}>
+                </button>
             </p>
             <p className={toggle ? 'referenceItem__text active' : 'referenceItem__text'}>
                 {text}
