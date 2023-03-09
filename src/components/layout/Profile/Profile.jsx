@@ -1,5 +1,5 @@
 import s from './Profile.module.scss'
-import avatar from '../../assets/img/avatar.png'
+import avatar from '../../../assets/img/avatar.png'
 
 const children = ['Василий', 'Татьяна']
 
@@ -48,7 +48,7 @@ const Profile = () => {
                         {/* <button className={s.btn__item}>
                             Заказать справку на <br /> налоговый вычет
                         </button> */}
-                        <a className={s.btn__item} href="https://intexpro.net/pg/страница-оплаты/" target='_blank' > Оплатить занятия</a>
+                        <a className={s.btn__item} href="src/components/layout/Profile/Profile" target='_blank' > Оплатить занятия</a>
                         <button className={s.btn__item}>Сохранить изменения</button>
                     </div>
 

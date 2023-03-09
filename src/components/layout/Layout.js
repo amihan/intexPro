@@ -1,8 +1,8 @@
-import './App.css';
-import Header from "./components/Header/Header";
+import './Layout.module.css';
+import Header from "./Header/Header";
 import { useState } from "react";
-import Office from "./pages/Office/Office";
-import Authorization from "./pages/Authorization/Authorization";
+import Office from "../screens/Office/Office";
+import Authorization from "../screens/Authorization/Authorization";
 
 function App() {
   const [isAuth, setIsAuth] = useState(true);

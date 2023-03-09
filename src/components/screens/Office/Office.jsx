@@ -1,13 +1,13 @@
 import React from 'react';
-import Navbar from "../../components/Navbar/Navbar";
-import Profile from "../../components/Profile/Profile";
+import Navbar from "../../layout/Navbar/Navbar";
+import Profile from "../../layout/Profile/Profile";
 import s from './Office.module.scss'
 import { Route, Routes } from "react-router-dom";
-import Reference from "../../components/Reference/Reference";
-import News from "../../components/News/News";
-import Documents from "../../components/Documents/Documents";
-import Payments from "../../components/Payments/Payments";
-import Lessons from "../../components/lessons/Lessons";
+import Reference from "../../layout/Reference/Reference";
+import News from "../../layout/News/News";
+import Documents from "../../layout/Documents/Documents";
+import Payments from "../../layout/Payments/Payments";
+import Lessons from "../../layout/lessons/Lessons";
 
 const Office = ({ isOpen, openMenu }) => {
     return (

@@ -1,13 +1,13 @@
 import s from './Navbar.module.scss';
 import { Link } from "react-router-dom";
 
-import profileImg from '../../assets/img/navbar/user.svg';
-import referenceImg from '../../assets/img/navbar/information.svg';
-import newsImg from '../../assets/img/navbar/megaphone.svg';
-import documentsImg from '../../assets/img/navbar/google-docs.svg';
-import paymentsImg from '../../assets/img/navbar/ruble.svg';
-import lessonsImg from '../../assets/img/navbar/check-mark.svg';
-import exitImg from '../../assets/img/navbar/power-button.svg';
+import profileImg from '../../../assets/img/navbar/user.svg';
+import referenceImg from '../../../assets/img/navbar/information.svg';
+import newsImg from '../../../assets/img/navbar/megaphone.svg';
+import documentsImg from '../../../assets/img/navbar/google-docs.svg';
+import paymentsImg from '../../../assets/img/navbar/ruble.svg';
+import lessonsImg from '../../../assets/img/navbar/check-mark.svg';
+import exitImg from '../../../assets/img/navbar/power-button.svg';
 import { useState } from 'react';
 
 const Navbar = ({ isOpen, openMenu }) => {

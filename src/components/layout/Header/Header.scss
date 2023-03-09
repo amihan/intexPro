@@ -2,7 +2,7 @@
   width: 100%;
 
   &__container {
-    background-image: url('../../assets/img/logo-header.png');
+    background-image: url('../../../assets/img/logo-header.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -51,7 +51,7 @@
 @media (max-width: 425px) {
   .header {
     &__container {
-      background-image: url('../../assets/img/fon-mobile.png');
+      background-image: url('../../../assets/img/fon-mobile.png');
     }
 
     &__title {
