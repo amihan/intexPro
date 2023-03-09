@@ -52,7 +52,7 @@ const Profile = () => {
                         {/* <button className={s.btn__item}>
                             Заказать справку на <br /> налоговый вычет
                         </button> */}
-                        <a className={s.btn__item} href="src/components/layout/Profile/Profile" target='_blank' > Оплатить занятия</a>
+                        <a className={s.btn__item} href="src/components/screens/Profile/Profile" target='_blank' > Оплатить занятия</a>
                         <button className={s.btn__item}>Сохранить изменения</button>
                     </div>
 
