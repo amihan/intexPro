@@ -47,10 +47,4 @@ export const routes = [
 		component: Lessons,
 		auth: true
 	},
-	{
-		path: '/profile',
-		component: NewWorkout,
-		auth: true
-	}
-
 ]

@@ -1,4 +1,5 @@
 import s from './Lessons.module.scss'
+import Layout from './../../layout/Layout';
 
 const Lesson = ({ id, lesson }) => {
     return (

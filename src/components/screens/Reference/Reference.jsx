@@ -1,5 +1,6 @@
 import './Reference.scss'
 import ReferenceItem from './ReferenceItem/ReferenceItem'
+import Layout from './../../layout/Layout';
 
 const dataReference = [
     {
@@ -36,12 +37,15 @@ const dataReference = [
 
 const Reference = () => {
     return (
-        <div className='accordion'>
-            <p className='accordion__title'>Справка</p>
-            {dataReference.map((r, id) => (
-                <ReferenceItem key={id} title={r.title} text={r.text} />
-            ))}
-        </div>
+        <Layout>
+            <div className='accordion'>
+                <p className='accordion__title'>Справка</p>
+                {dataReference.map((r, id) => (
+                    <ReferenceItem key={id} title={r.title} text={r.text} />
+                ))}
+            </div>
+        </Layout>
+
     )
 }
 

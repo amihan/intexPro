@@ -1,5 +1,10 @@
+
+import Layout from './../../layout/Layout';
+
+
+
 const Documents = () => {
-    return <div>Documents</div>
+    return <Layout>Documents</Layout>
 }
 
 export default Documents

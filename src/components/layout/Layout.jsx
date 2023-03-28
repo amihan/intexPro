@@ -4,10 +4,11 @@ import { useState } from "react";
 import Office from "../screens/Office/Office";
 import Authorization from "../screens/Authorization/Authorization";
 import Navbar from './Navbar/Navbar';
+import { useAuth } from './../../hooks/useAuth';
 
 function Layout({ children }) {
-  const [isAuth, setIsAuth] = useState(true);
-
+  // const [isAuth, setIsAuth] = useState(true);
+  const { isAuth } = useAuth()
   const [isOpen, setOpen] = useState(false);
 
   const openMenu = () => {
@@ -19,12 +20,10 @@ function Layout({ children }) {
       <Header isOpen={isOpen} openMenu={openMenu} />
 
       <div className={s.office}>
-        <Navbar isOpen={isOpen} openMenu={openMenu} />
-        {isAuth ? <Office isOpen={isOpen} openMenu={openMenu} /> : <Authorization />}
+        {isAuth ? <Navbar isOpen={isOpen} openMenu={openMenu} /> : <></>}
+        {children}
+        {/* {isAuth ? <Office isOpen={isOpen} openMenu={openMenu} /> : <Authorization />} */}
       </div>
-
-
-
     </div>
   );
 }

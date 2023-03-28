@@ -36,7 +36,7 @@ const Navbar = ({ isOpen, openMenu }) => {
                     <Link className={s.list__link} onClick={openMenu} to='/lessons'>Занятия</Link>
                 </li>
                 <li className={s.list__item}>
-                    <Link className={s.list__link} onClick={openMenu} to='/exit'>Выход</Link>
+                    <Link className={s.list__link} onClick={openMenu} to='/'>Выход</Link>
                 </li>
             </ul>
 
@@ -50,7 +50,7 @@ const Navbar = ({ isOpen, openMenu }) => {
                 <Link className={s.listMobile__link} onClick={openMenu} to='/documents'><img src={documentsImg} alt="documents" /></Link>
                 <Link className={s.listMobile__link} onClick={openMenu} to='/payments'><img src={paymentsImg} alt="payments" /></Link>
                 <Link className={s.listMobile__link} onClick={openMenu} to='/lessons'><img src={lessonsImg} alt="lessons" /></Link>
-                <Link className={s.listMobile__link} onClick={openMenu} to='/exit'><img src={exitImg} alt="exit" /></Link>
+                <Link className={s.listMobile__link} onClick={openMenu} to='/'><img src={exitImg} alt="exit" /></Link>
             </div>
         </nav>
     );
