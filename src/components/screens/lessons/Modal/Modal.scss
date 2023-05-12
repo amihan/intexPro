@@ -1,0 +1,131 @@
+.modal {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 37px;
+
+
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    &__content {
+        padding: 23px;
+        border-radius: 12px;
+        background-color: white;
+        transform: scale(0.5);
+        transition: 0.5s;
+
+        min-width: 360px;
+        max-width: 1000px;
+        filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+
+        &.active {
+            transform: scale(1);
+        }
+    }
+
+    &__presence {
+        border: 1px solid #000000;
+        display: inline-block;
+        padding: 0 10px 5px;
+    }
+
+    &__presence-text {
+        font-size: 40px;
+        line-height: 40px;
+        color: #F15A24;
+        transform: rotate(2deg);
+
+        &.active {
+            color: #31E238;
+            transform: matrix(1, -0.03, 0.05, 1, 0, 0);
+        }
+    }
+
+
+    &__time {
+        margin-right: 10px;
+    }
+
+    &__lesson {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    &__namelesson {
+        margin-bottom: 40px;
+    }
+
+    &__estimation-home {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    &__marks {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    &__marks-text {
+        margin-right: 15px;
+
+    }
+}
+
+.block-marks {
+    display: inline-block;
+    font-size: 48px;
+    line-height: 48px;
+    color: #31E238;
+    padding: 9px 25px;
+    border: 1px solid #000000;
+}
+
+.marks {
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    display: flex;
+    justify-content: space-between;
+
+    &__row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__row+&__row {
+        border-left: 1px solid #000;
+    }
+
+    &__row>&__col:not(:last-child) {
+        border-bottom: 1px solid #000;
+    }
+
+    &__col {
+        padding: 10px;
+    }
+
+}

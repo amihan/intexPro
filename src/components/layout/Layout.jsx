@@ -1,31 +1,57 @@
-import s from './Layout.module.scss';
+
 import Header from "./Header/Header";
 import { useState } from "react";
-import Office from "../screens/Office/Office";
-import Authorization from "../screens/Authorization/Authorization";
-import Navbar from './Navbar/Navbar';
-import { useAuth } from './../../hooks/useAuth';
 
-function Layout({ children }) {
-  // const [isAuth, setIsAuth] = useState(true);
-  const { isAuth } = useAuth()
+import Navbar from './Navbar/Navbar';
+import { Outlet } from 'react-router-dom';
+import { useData } from '../../hooks/useData';
+import { Grid, Container, makeStyles, CircularProgress } from '@material-ui/core';
+import { observer } from 'mobx-react-lite';
+
+
+const useStyles = makeStyles((theme) => ({
+  content: {
+    padding: theme.spacing(1.5)
+  },
+  loading: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignContent: 'center',
+    width: '100%',
+    height: '100vh'
+  }
+}));
+
+function Layout() {
+  const classes = useStyles();
   const [isOpen, setOpen] = useState(false);
 
   const openMenu = () => {
     setOpen(!isOpen);
   }
 
-  return (
-    <div className="App">
-      <Header isOpen={isOpen} openMenu={openMenu} />
+  const { isAuth, isLoaging } = useData().storeAuth;
 
-      <div className={s.office}>
-        {isAuth ? <Navbar isOpen={isOpen} openMenu={openMenu} /> : <></>}
-        {children}
-        {/* {isAuth ? <Office isOpen={isOpen} openMenu={openMenu} /> : <Authorization />} */}
-      </div>
+
+  return (
+    <div>
+      <Header isOpen={isOpen} openMenu={openMenu} />
+      <Container maxWidth='xl'>
+        <Grid container>
+          {isAuth ? <Grid item sm={2} xs={2}>
+            <Navbar isOpen={isOpen} openMenu={openMenu} />
+          </Grid> : <></>}
+
+
+          <Grid item sm={isAuth ? 10 : 12} xs={isAuth ? 10 : 12} className={classes.content}>
+            {isLoaging ? <CircularProgress className={classes.loading} /> : <Outlet />}
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 }
 
-export default Layout;
+
+export default observer(Layout);
+

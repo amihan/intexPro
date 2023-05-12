@@ -16,6 +16,18 @@
     background: #31E238;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
     border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center; // position: relative;
+
+    &:disabled {
+      background-color: rgb(126, 126, 126);
+    }
+
+    &_red {
+      background-color: rgb(130, 17, 17);
+    }
+
   }
 
   &__title {
@@ -31,6 +43,15 @@
   }
 }
 
+.btns {
+  display: flex;
+
+  &__item {
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: #c0d822;
+  }
+}
 
 @media (max-width: 1440px) {
   .lessons {

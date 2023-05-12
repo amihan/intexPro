@@ -1,58 +1,84 @@
-import s from './Navbar.module.scss';
 import { Link } from "react-router-dom";
+import { useData } from '../../../hooks/useData'
+import { Container, List, Typography, makeStyles } from '@material-ui/core';
+import { Announcement, AttachMoney, Attachment, Bookmark, ExitToApp, Home, LocalLibrary, Person, PhotoCamera, PlayCircleOutline, Settings, Storefront, TabletMac } from '@material-ui/icons';
 
-import profileImg from '../../../assets/img/navbar/user.svg';
-import referenceImg from '../../../assets/img/navbar/information.svg';
-import newsImg from '../../../assets/img/navbar/megaphone.svg';
-import documentsImg from '../../../assets/img/navbar/google-docs.svg';
-import paymentsImg from '../../../assets/img/navbar/ruble.svg';
-import lessonsImg from '../../../assets/img/navbar/check-mark.svg';
-import exitImg from '../../../assets/img/navbar/power-button.svg';
-import { useState } from 'react';
+const useStyles = makeStyles((theme) => ({
+    container: {
+        height: "100vh",
+        color: "white",
+        paddingTop: theme.spacing(8),
+        backgroundColor: theme.palette.primary.light,
+        position: "sticky",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        top: 0,
+        [theme.breakpoints.up("sm")]: {
+            backgroundColor: 'white',
+            color: "#555",
+            border: "1px solid #ece7e7",
+        },
+    },
+    item: {
+        color: 'inherit',
+        display: "flex",
+        alignItems: "center",
+        marginBottom: theme.spacing(4),
+        [theme.breakpoints.up("sm")]: {
+            marginBottom: theme.spacing(3),
+            cursor: "pointer",
+        },
+    },
+    icon: {
+        marginRight: theme.spacing(1),
+        [theme.breakpoints.up("sm")]: {
+            fontSize: "18px",
+        },
+    },
+    text: {
+        fontSize: 20,
+        fontWeight: 500,
+        [theme.breakpoints.down("sm")]: {
+            display: "none",
+        },
+    },
+}));
+
+
 
 const Navbar = ({ isOpen, openMenu }) => {
-    const [count, setCount] = useState(1);
-    return (
-        <nav className={s.nav}>
-            <ul className={isOpen ? s.list : `${s.list} ${s.open}`}>
-                <li className={s.list__item}>
-                    <Link className={s.list__link} onClick={openMenu} to='/profile'> Профиль</Link>
-                </li>
-                <li className={s.list__item}>
-                    <Link className={s.list__link} onClick={openMenu} to='/reference'>Справка</Link>
-                </li>
-                <li className={`${s.list__item} ${s.list__news}`}>
-                    <Link className={s.list__link} onClick={openMenu} to='/news'>Новости
-                        <span className={s.newsCount}>{count}</span>
-                    </Link>
-                </li>
-                <li className={s.list__item}>
-                    <Link className={s.list__link} onClick={openMenu} to='/documents'>Документы</Link>
-                </li>
-                <li className={s.list__item}>
-                    <Link className={s.list__link} onClick={openMenu} to='/payments'>Оплаты</Link>
-                </li>
-                <li className={s.list__item}>
-                    <Link className={s.list__link} onClick={openMenu} to='/lessons'>Занятия</Link>
-                </li>
-                <li className={s.list__item}>
-                    <Link className={s.list__link} onClick={openMenu} to='/'>Выход</Link>
-                </li>
-            </ul>
+    const state = useData().storeAuth;
+    const classes = useStyles();
 
-            <div className={s.listMobile}>
-                <Link className={s.listMobile__link} onClick={openMenu} to='/profile'><img src={profileImg} alt="profile" /></Link>
-                <Link className={s.listMobile__link} onClick={openMenu} to='/reference'><img src={referenceImg} alt="reference" /></Link>
-                <Link className={`${s.listMobile__link} ${s.listMobile__news}`} onClick={openMenu} to='/news'>
-                    <img src={newsImg} alt="news" />
-                    <span className={s.newsCount}>{count}</span>
-                </Link>
-                <Link className={s.listMobile__link} onClick={openMenu} to='/documents'><img src={documentsImg} alt="documents" /></Link>
-                <Link className={s.listMobile__link} onClick={openMenu} to='/payments'><img src={paymentsImg} alt="payments" /></Link>
-                <Link className={s.listMobile__link} onClick={openMenu} to='/lessons'><img src={lessonsImg} alt="lessons" /></Link>
-                <Link className={s.listMobile__link} onClick={openMenu} to='/'><img src={exitImg} alt="exit" /></Link>
-            </div>
-        </nav>
+    return (<>
+        <Container className={classes.container}>
+            <Link className={classes.item} to='/profile'>
+                <Person className={classes.icon} />
+                <Typography className={classes.text}>Профиль</Typography>
+            </Link>
+            <Link className={classes.item} to='/reference'>
+                <Attachment className={classes.icon} />
+                <Typography className={classes.text}>Справка</Typography>
+            </Link>
+            <Link className={classes.item} to='/news'>
+                <Announcement className={classes.icon} />
+                <Typography className={classes.text}>Новости</Typography>
+            </Link>
+            <Link className={classes.item} to='/payments'>
+                <AttachMoney className={classes.icon} />
+                <Typography className={classes.text}>Оплаты</Typography>
+            </Link>
+            <Link className={classes.item} to='/lessons'>
+                <LocalLibrary className={classes.icon} />
+                <Typography className={classes.text}>Занятия</Typography>
+            </Link>
+            <Link className={classes.item} to='/' onClick={() => state.logout()}>
+                <ExitToApp className={classes.icon} />
+                <Typography className={classes.text}>Выход</Typography>
+            </Link>
+        </Container>
+    </>
     );
 };
 

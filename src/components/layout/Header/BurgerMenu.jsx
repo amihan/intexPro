@@ -1,4 +1,3 @@
-import './Header.scss';
 
 const BurgerMenu = ({ isOpen, openMenu }) => {
     return (

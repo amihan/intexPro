@@ -1,14 +1,23 @@
-import './Reference.scss'
-import ReferenceItem from './ReferenceItem/ReferenceItem'
-import Layout from './../../layout/Layout';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Typography, alpha, makeStyles } from '@material-ui/core';
+
+
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { useState } from 'react';
+
 
 const dataReference = [
     {
         title: 'Критерии оценивания',
         text: 'Господа, сплочённость команды профессионалов требует анализа новых принципов формирования материально-технической и кадровой базы. Внезапно, многие известные личности лишь добавляют фракционных разногласий и объективно рассмотрены соответствующими инстанциями. Предварительные выводы неутешительны: постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль в формировании дальнейших направлений развития! Но консультация с широким активом способствует подготовке и реализации форм воздействия.'
     },
-    { title: 'Как отработать занятие?', text: 'Как отработать занятие?' },
-    { title: 'Как внести оплату?', text: 'Как внести оплату?' },
+    {
+        title: 'Как отработать занятие?',
+        text: 'Как отработать занятие?'
+    },
+    {
+        title: 'Как внести оплату?',
+        text: 'Как внести оплату?'
+    },
     {
         title: 'Критерии оценивания',
         text: 'Господа, сплочённость команды профессионалов требует анализа новых принципов формирования материально-технической и кадровой базы. Внезапно, многие известные личности лишь добавляют фракционных разногласий и объективно рассмотрены соответствующими инстанциями. Предварительные выводы неутешительны: постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль в формировании дальнейших направлений развития! Но консультация с широким активом способствует подготовке и реализации форм воздействия.'
@@ -35,17 +44,55 @@ const dataReference = [
     },
 ]
 
-const Reference = () => {
-    return (
-        <Layout>
-            <div className='accordion'>
-                <p className='accordion__title'>Справка</p>
-                {dataReference.map((r, id) => (
-                    <ReferenceItem key={id} title={r.title} text={r.text} />
-                ))}
-            </div>
-        </Layout>
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '100%',
+    },
+    heading: {
+        fontWeight: theme.typography.fontWeightRegular,
+    },
+    details: {
+        fontWeight: theme.typography.fontWeightRegular,
+    },
+    accordion: {
+        marginBottom: theme.spacing(1),
+        backgroundColor: alpha(theme.palette.primary.light, 0.25)
+    },
+    title: {
+        textAlign: 'center',
+        marginTop: theme.spacing(1),
+        marginBottom: theme.spacing(1),
+    },
+}));
 
+
+
+
+const Reference = () => {
+    const classes = useStyles();
+
+    return (
+        <>
+            <Typography className={classes.title} variant="h4" component="h2">Справка</Typography>
+            <Box className={classes.root}>
+                {dataReference.map(({ title, text }, id) => (
+                    <Accordion key={id} className={classes.accordion}>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                        >
+                            <Typography variant="h5" component="p" className={classes.heading}>{title}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography variant="h6" component="p" className={classes.details}>
+                                {text}
+                            </Typography>
+                        </AccordionDetails>
+                    </Accordion>
+                ))}
+            </Box>
+        </>
     )
 }
 
