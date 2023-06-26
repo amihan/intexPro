@@ -1,6 +1,6 @@
 
 import Header from "./Header/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Navbar from './Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
@@ -32,6 +32,11 @@ function Layout() {
 
   const { isAuth, isLoaging } = useData().storeAuth;
 
+
+  const state = useData().storeСhildren
+  useEffect(() => {
+    state.getProfile()
+  }, [])
 
   return (
     <div>

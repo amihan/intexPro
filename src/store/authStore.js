@@ -37,7 +37,7 @@ export default class authStore {
         this.error = error;
     }
 
-    async checkAuth(token) {
+    checkAuth = async (token) => {
         try {
             const res = await axios.post(`${API_URL}/auth/refresh`, { token }, {
                 withCredentials: true, headers: {
@@ -53,7 +53,7 @@ export default class authStore {
         }
     }
 
-    async login(login, password) {
+    login = async (login, password) => {
         this.isLoaging = true;
         try {
             const res = await AuthService.login(login, password);
@@ -72,7 +72,7 @@ export default class authStore {
         }
     }
 
-    async registration(login, password) {
+    registration = async (login, password) => {
         this.isLoaging = true;
         try {
             const res = await AuthService.registration(login, password);
@@ -86,7 +86,7 @@ export default class authStore {
         }
     }
 
-    async logout() {
+    logout = async () => {
         try {
             localStorage.removeItem('token');
             this.setAuth(false);

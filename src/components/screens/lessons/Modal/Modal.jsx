@@ -1,7 +1,7 @@
 import './Modal.scss'
 
 const Modal = (props) => {
-    const { active, setActive, namelesson, homework, status, punctuality,
+    const { namelesson, homework, status, punctuality,
         behaviour, activity, tasks, estimation_home, index, datelesson } = props;
 
 
@@ -13,8 +13,8 @@ const Modal = (props) => {
 
 
     return (
-        <div className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>
-            <div className={active ? 'modal__content active' : 'modal__content'} onClick={e => e.stopPropagation()}>
+        <div className='modal' >
+            <div className='modal__content'>
 
                 <div className="modal__lesson">
                     <p className="modal__time">Занятие №{index} Дата:{datelesson.slice(0, 10)}</p>

@@ -4,6 +4,7 @@ import { useData } from '../../../hooks/useData';
 import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { toJS } from 'mobx';
+import ChildrenButton from '../../UI/ChildrenButton';
 
 
 
@@ -36,34 +37,29 @@ const ProfilePage = () => {
         state.getProfile()
     }, [])
 
+    // const handleChildSelection = (id) => {
+    //     chahgeActiveProfile(id)
+    // };
 
+    // const renderChildButton = (child) => {
+    //     let isActive
+    //     if (child.id === activeProfile) {
+    //         isActive = true
+    //     } else {
+    //         isActive = false
+    //     }
 
-
-
-    const handleChildSelection = (id) => {
-        chahgeActiveProfile(id)
-    };
-
-    const renderChildButton = (child) => {
-        let isActive
-        if (child.id === activeProfile) {
-            isActive = true
-        } else {
-            isActive = false
-        }
-
-
-        return (
-            <Button
-                key={child.id}
-                variant={isActive ? 'contained' : 'outlined'}
-                color={isActive ? 'primary' : 'default'}
-                onClick={() => handleChildSelection(child.id)}
-            >
-                {child.fio}
-            </Button>
-        );
-    };
+    //     return (
+    //         <Button
+    //             key={child.id}
+    //             variant={isActive ? 'contained' : 'outlined'}
+    //             color={isActive ? 'primary' : 'default'}
+    //             onClick={() => handleChildSelection(child.id)}
+    //         >
+    //             {child.fio}
+    //         </Button>
+    //     );
+    // };
 
     return (
         <div>
@@ -114,7 +110,7 @@ const ProfilePage = () => {
                                 Выберите ребенка
                             </Typography>
                             <Box sx={{ marginBottom: 2 }}>
-                                {childrens.map(child => renderChildButton(child))}
+                                {childrens.map(child => <ChildrenButton key={child.id} child={child} />)}
                             </Box>
                         </Grid>
                     </Grid>

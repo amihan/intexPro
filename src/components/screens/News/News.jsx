@@ -3,7 +3,7 @@ import $api from "../../../http";
 import { Title } from "@material-ui/icons";
 import { Box, CircularProgress, Collapse, FormControl, InputLabel, List, ListItem, ListItemText, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Typography, makeStyles } from "@material-ui/core";
 import { useData } from "../../../hooks/useData";
-import { observable } from "mobx";
+import { observer } from "mobx-react-lite";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -22,11 +22,8 @@ const useStyles = makeStyles((theme) => ({
 const News = () => {
     const classes = useStyles();
 
-    const { news, getNews } = useData().storeNews
-    console.log(news)
+    const { news, getNews, isLoading } = useData().storeNews
 
-    let isLoading = true;
-    const [newsData, setNewsData] = useState([]);
     const [expandedNewsId, setExpandedNewsId] = useState(null);
 
     useEffect(() => {
@@ -46,14 +43,14 @@ const News = () => {
                 <CircularProgress />
             ) : (
                 <List component="nav">
-                    {newsData.map((news) => (
+                    {news.map((news) => (
                         <div key={news.id}>
                             <ListItem button onClick={() => handleNewsClick(news.id)}>
                                 <ListItemText primary={news.date} secondary={news.title} />
                             </ListItem>
                             <Collapse in={expandedNewsId === news.id}>
                                 <Typography variant="h6" gutterBottom>
-                                    {news.content}
+                                    {news.text}
                                 </Typography>
                             </Collapse>
                         </div>
@@ -65,4 +62,4 @@ const News = () => {
 };
 
 
-export default News;
+export default observer(News);

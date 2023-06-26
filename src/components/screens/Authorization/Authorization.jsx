@@ -2,14 +2,29 @@ import React, { useEffect } from 'react'
 import { observer } from 'mobx-react-lite';
 import { Form, useLocation, useNavigate } from "react-router-dom";
 import { useData } from '../../../hooks/useData';
-import { Avatar, Box, Button, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Paper, TextField, Typography } from '@material-ui/core';
+import { Avatar, Box, Button, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Paper, TextField, Typography, makeStyles } from '@material-ui/core';
 import { PermIdentity } from '@material-ui/icons';
+
+const useStyles = makeStyles((theme) => ({
+    management: {
+        marginTop: theme.spacing(2),
+        display: 'flex',
+        justifyContent: 'space-between',
+    },
+    link: {
+        cursor: 'pointer',
+        color: theme.palette.primary.main
+    }
+}));
+
 
 
 const Authorization = observer(() => {
     const [login, setLogin] = React.useState('amirhan');
     const [password, setPassword] = React.useState('qwer');
 
+
+    const classes = useStyles();
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -91,6 +106,15 @@ const Authorization = observer(() => {
                     </Button>
                 </Box>
             </Box>
+            {/* <Box className={classes.management}>
+                <Typography className={classes.link} variant="subtitle1" component="p" gutterBottom>
+                    Забыли пароль?
+                </Typography>
+                <Typography className={classes.link} variant="subtitle1" component="p" gutterBottom>
+                    Зарегистрироваться
+                </Typography>
+            </Box> */}
+
         </Container >
 
     )

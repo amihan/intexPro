@@ -10,7 +10,8 @@ export default class childrenStore {
         contract: null,
         dateBirth: null,
         datepay: null,
-        parent: null
+        parent: null,
+        id: null
     }
     activeProfile = null;
 
@@ -41,10 +42,11 @@ export default class childrenStore {
                 this.сhildren = child
             }
         })
+        console.log('children', this.сhildren)
     }
 
 
-    async getProfile() {
+    getProfile = async () => {
         this.isLoading = true;
         try {
             const res = await $api.get('/users/profile')
@@ -61,7 +63,7 @@ export default class childrenStore {
     }
 
 
-    async getOneProfile(id) {
+    getOneProfile = async (id) => {
         this.isLoading = true;
         try {
             const res = await $api.get(`/users/profile/${id}`)

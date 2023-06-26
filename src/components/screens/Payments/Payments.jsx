@@ -1,5 +1,8 @@
 import { Box, Card, CardContent, Grid, IconButton, Modal, Typography, makeStyles, styled } from '@material-ui/core';
 import { useState } from 'react';
+import { useData } from '../../../hooks/useData';
+import ChildrenButton from '../../UI/ChildrenButton';
+import LessonButton from '../../UI/LessonButton';
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -68,10 +71,10 @@ const StyledCardContent = styled(CardContent)(({ theme }) => ({
 const Payments = () => {
     const paidMonths = [
         { month: 'Май', year: 2023, status: 'Оплачено', date: '10.05.2023', amount: 100 },
-        { month: 'Июнь', year: 2023, status: 'Не оплачено', date: '', amount: 0 },
-        { month: 'Июль', year: 2023, status: 'Не оплачено', date: '', amount: 0 },
-        { month: 'Август', year: 2023, status: 'Оплачено', date: '15.08.2023', amount: 120 },
-        { month: 'Сентябрь', year: 2023, status: 'Не оплачено', date: '', amount: 0 },
+        { month: 'Июнь', year: 2023, status: 'Оплачено', date: '10.05.2023', amount: 0 },
+        { month: 'Июль', year: 2023, status: 'Оплачено', date: '10.05.2023', amount: 0 },
+        { month: 'Август', year: 2023, status: 'Не оплачено', date: '01.08.2023', amount: 120 },
+        { month: 'Сентябрь', year: 2023, status: 'Не оплачено', date: '01.09.2023', amount: 0 },
     ];
 
     const [openModal, setOpenModal] = useState(false);
@@ -86,13 +89,31 @@ const Payments = () => {
         setOpenModal(false);
     };
 
+    // 
+    const { childrens } = useData().storeСhildren
+    const { courses } = useData().storeLesson
+    // 
+
     return (
         <div>
             <Typography variant="h4" gutterBottom>
                 Оплаченные месяцы
             </Typography>
 
-            <Grid container spacing={2}>
+            <Box sx={{ marginBottom: 6 }}>
+                <Box sx={{ marginBottom: 6 }}>
+                    <Typography variant="h6" component="span" gutterBottom>
+                        Выберите ребенка:
+                    </Typography>
+                    {childrens.map(child => <ChildrenButton child={child} />)}
+                </Box>
+
+                <Typography variant="h6" component="span" gutterBottom>
+                    Выберите группу:
+                </Typography> {courses[1].map(course => <LessonButton key={course.id} course={course} />)}
+            </Box>
+
+            {/* <Grid container spacing={2}>
                 {paidMonths.map((month) => (
                     <Grid item xs={12} sm={6} md={4} key={`${month.month}-${month.year}`}>
                         <StyledCard isPaid={month.status === 'Оплачено'} onClick={() => handleOpenModal(month)}>
@@ -107,7 +128,7 @@ const Payments = () => {
                         </StyledCard>
                     </Grid>
                 ))}
-            </Grid>
+            </Grid> */}
 
             {/* <TransactionModal open={openModal} onClose={handleCloseModal} transaction={selectedTransaction} />         */}
         </div>

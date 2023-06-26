@@ -3,18 +3,19 @@ import $api from "../http";
 
 export default class newsStore {
     news = []
-    isLoaging = null
+    isLoading = true
+
     constructor() {
         makeObservable(this, {
             news: observable,
-            isLoaging: observable,
+            isLoading: observable,
             getNews: action.bound,
         });
     }
 
 
-    async getNews() {
-        this.isLoaging = true
+    getNews = async () => {
+        this.isLoading = true
         try {
             const res = await $api.get('/news/');
             this.news = res.data
@@ -22,7 +23,7 @@ export default class newsStore {
         } catch (e) {
             console.log(e.response?.data?.message)
         } finally {
-            this.isLoaging = false
+            this.isLoading = false
         }
 
     }
